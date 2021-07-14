@@ -49,17 +49,26 @@ laser_y = 500
 laser_x_change = 0
 laser_y_change = -.5
 laser_state = False  #false state - laser not fired
+
 # Score
 score = 0
+font = pygame.font.Font('freesansbold.ttf',16)
+
+text_x = 700
+text_y = 10
 #############################
 #############################
+def showScore(x,y):
+    score_disp = font.render("Score: "+str(score),True,(255,0,0))
+    screen.blit(score_disp, (x,y))
+
 def player(x,y):
     screen.blit(player_ship_img,(player_ship_x,player_ship_y))  
   
 def enemy(x,y,i):
     screen.blit(enemy_img[i],(x,y))  
 
-def fire_laser(x,y):
+def fireLaser(x,y):
     # global laser_state
     # laser_state = True
     screen.blit(laser_img,(x+16,y-20))
@@ -138,14 +147,14 @@ while running:
         laser_state = False
         
     if laser_state == True:
-        fire_laser(laser_x,laser_y)
+        fireLaser(laser_x,laser_y)
         laser_y += laser_y_change
         
 
   
     # spawns player ship to given co-cordinates
     player(player_ship_x,player_ship_y)
-
+    showScore(text_x,text_y)
     pygame.display.update()
     
     
