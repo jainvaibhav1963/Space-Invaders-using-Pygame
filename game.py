@@ -18,16 +18,16 @@ pygame.init()
 screen = pygame.display.set_mode((800,600))
 
 # Background
-background = pygame.image.load('background.png')
+background = pygame.image.load('assets/background.png')
 
 # Title and Icon
 pygame.display.set_caption('Horny Invaders')
-icon = pygame.image.load('icon.png')
+icon = pygame.image.load('assets/icon.png')
 pygame.display.set_icon(icon)
 #############################
 #############################
 # Player ship
-player_ship_img = pygame.image.load('player_ship.png')
+player_ship_img = pygame.image.load('assets/player_ship.png')
 player_ship_x = 368
 player_ship_y = 500
 player_ship_x_change = 0
@@ -39,13 +39,13 @@ enemy_x_change = []
 enemy_y_change = []
 num_of_enemies = 10
 for i in range(num_of_enemies):
-    enemy_img.append(pygame.image.load('enemy_1.png'))
+    enemy_img.append(pygame.image.load('assets/enemy_1.png'))
     enemy_x.append(random.randint(0,800))
     enemy_y.append(random.randint(0,200))
     enemy_x_change.append(0.5)
     enemy_y_change.append(60)
 # Laser
-laser_img = pygame.image.load('laser.png')
+laser_img = pygame.image.load('assets/laser.png')
 laser_x = 0
 laser_y = 500
 laser_x_change = 0
@@ -65,7 +65,7 @@ end_text_x = 300
 end_text_y = 100
 
 # sounds
-mixer.music.load('background_track.wav')
+mixer.music.load('assets/background_track.wav')
 mixer.music.play(-1)
 
 
@@ -122,7 +122,7 @@ while running:
                 # fire_laser(player_ship_x,laser_y)
                 laser_x = player_ship_x
                 laser_state = True
-                laser_sound = mixer.Sound('laser_sound.wav')
+                laser_sound = mixer.Sound('assets/laser_sound.wav')
                 laser_sound.play()
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_a or event.key == pygame.K_d:
@@ -154,7 +154,7 @@ while running:
         collision = isCollision(laser_x,laser_y,enemy_x[i],enemy_y[i])
         if collision:
             
-            collision_sound = mixer.Sound('enemy_dies.wav')
+            collision_sound = mixer.Sound('assets/enemy_dies.wav')
             collision_sound.play()
             
             laser_y = 500
