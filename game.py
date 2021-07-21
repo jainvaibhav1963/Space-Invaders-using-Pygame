@@ -21,7 +21,7 @@ screen = pygame.display.set_mode((800,600))
 background = pygame.image.load('assets/background.png')
 
 # Title and Icon
-pygame.display.set_caption('Horny Invaders')
+pygame.display.set_caption('Invaders')
 icon = pygame.image.load('assets/icon.png')
 pygame.display.set_icon(icon)
 #############################
